@@ -44,9 +44,6 @@ class Logger:
         self._write("DEBUG", message)
 
 
-# -----------------------------
-# Context Manager Wrapper
-# -----------------------------
 class LogSession:
     def __init__(self, logger):
         self.logger = logger

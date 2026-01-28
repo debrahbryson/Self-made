@@ -2,9 +2,6 @@ import os
 from datetime import datetime
 from pathlib import Path
 
-# -----------------------------
-# Logger (Context Manager)
-# -----------------------------
 class FileLogger:
     def __init__(self, log_file="file_manager.log"):
         self.log_file = log_file
@@ -21,18 +18,12 @@ class FileLogger:
         self.file.close()
 
 
-# -----------------------------
-# Generator: stream files
-# -----------------------------
 def file_stream(directory):
     for item in os.scandir(directory):
         if item.is_file():
             yield item
 
 
-# -----------------------------
-# Smart File Manager
-# -----------------------------
 class SmartFileManager:
     FILE_TYPES = {
         "Images": [".jpg", ".jpeg", ".png", ".gif"],
@@ -77,9 +68,6 @@ class SmartFileManager:
             logger.log(f"Error moving {file.name}: {e}")
 
 
-# -----------------------------
-# Run the program
-# -----------------------------
 if __name__ == "__main__":
     path = input("Enter directory to organize: ").strip()
 

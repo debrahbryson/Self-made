@@ -4,9 +4,6 @@ from datetime import datetime
 DATA_FILE = "study_sessions.txt"
 
 
-# -----------------------------
-# Context Manager for file I/O
-# -----------------------------
 class SessionFile:
     def __init__(self, filename=DATA_FILE):
         self.filename = filename
@@ -19,9 +16,6 @@ class SessionFile:
         self.file.close()
 
 
-# -----------------------------
-# Study Session
-# -----------------------------
 class StudySession:
     def __init__(self, subject, focus_level):
         self.subject = subject
@@ -41,9 +35,6 @@ class StudySession:
         return f"{self.subject},{self.start_time},{self.end_time},{self.duration_minutes},{self.focus_level}\n"
 
 
-# -----------------------------
-# Generator to read sessions
-# -----------------------------
 def session_stream(filename=DATA_FILE):
     try:
         with open(filename, "r") as f:
@@ -53,9 +44,6 @@ def session_stream(filename=DATA_FILE):
         return
 
 
-# -----------------------------
-# Tracker Controller
-# -----------------------------
 class StudyTracker:
     def __init__(self):
         self.current_session = None
@@ -99,9 +87,6 @@ class StudyTracker:
         print(f"Total sessions: {sessions}\n")
 
 
-# -----------------------------
-# CLI Interface
-# -----------------------------
 def main():
     tracker = StudyTracker()
 
